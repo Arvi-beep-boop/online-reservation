@@ -10,22 +10,25 @@ class Address(models.Model):
         abstract = True
 
 class ContactInfo(models.Model):
-    email = models.EmailField(max_length=254)
-    phone_number = models.PhoneNumberField()
+    # email = models.EmailField(max_length=254)
+    phone_number = models.CharField(max_length=15)
     class Meta:
         abstract = True
 
-# Create your models here.
 class Company(Address, ContactInfo):
     name = models.CharField(max_length=200)
-    user = models.OneToOneField(User, null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     
     def __str__(self):
         return self.name
     
+class Customer(ContactInfo):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    
+
 class Service(models.Model):
     name = models.CharField(max_length=200)
-    description = models.TextField(null=True)
+    description = models.TextField(null=True, blank=True)
     price = models.FloatField()
     duration = models.DurationField()
     company = models.ForeignKey(Company, on_delete=models.CASCADE)

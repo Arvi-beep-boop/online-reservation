@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'reservation_system/style.css' %}">
+
+{% if service_list %}
+    <ul>
+    {% for service in service_list %}
+        <li>{{service}} {{service.company.name}}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
