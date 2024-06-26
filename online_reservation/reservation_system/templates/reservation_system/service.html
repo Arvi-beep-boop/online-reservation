@@ -4,10 +4,17 @@
 
 {% if service_list %}
     <ul>
+        {% comment %} <form action="">
+            <input type="text" name="name" placeholder="Search by title" value="{{request.GET.name}}">
+            <input type="submit" value="Search">
+        </form> {% endcomment %}
     {% for service in service_list %}
-        <li>{{service}} {{service.company.name}}</li>
+        <li>{{service}} {{service.company.name}} 
+            {% for comment in service.company.categories.all %}
+            {{ comment }}
+        {% endfor %}</li>
     {% endfor %}
     </ul>
 {% else %}
-    <p>No polls are available.</p>
+    <p>Unavailable.</p>
 {% endif %}

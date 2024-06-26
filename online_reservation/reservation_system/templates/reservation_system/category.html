@@ -1,0 +1,12 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'reservation_system/style.css' %}">
+
+{% if category_list %}
+    {% for category in category_list %}
+        <li><a href="{% url 'reservation_system:company' category.id %}">{{category}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No categories are available.</p>
+{% endif %}

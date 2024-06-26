@@ -1,0 +1,1 @@
+import{a as o}from"./chunk-SWW6Z7RX.js";var n=o((a,t)=>{var l=typeof global=="object"&&global&&global.Object===Object&&global,r=typeof self=="object"&&self&&self.Object===Object&&self,b=l||r||Function("return this")(),i=b.isFinite;function f(e){return typeof e=="number"&&i(e)}t.exports=f});export{n as a};

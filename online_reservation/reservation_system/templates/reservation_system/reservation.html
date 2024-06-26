@@ -1,0 +1,23 @@
+{% load static %}
+{% load formsetify %}
+{% load bootstrap5 %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Form</title>
+
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link href="{% static 'formset/css/bootstrap5-extra.css' %}" rel="stylesheet" />
+    <link href="{% static 'formset/css/collections.css' %}" rel="stylesheet" />
+    <script type="module" src="{% static 'formset/js/django-formset.js' %}"></script>
+  </head>
+  <body>
+    <h1>My Form with DateCalendar Widget</h1>
+    <django-formset endpoint="{{ request.path }}" force-submission csrf-token="{{ csrf_token }}">
+        {% render_form form 'bootstrap' %}
+        <button type="button" df-click="submit -> proceed">Submit</button>
+    </django-formset>
+  </body>
+</html>
