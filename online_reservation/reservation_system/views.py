@@ -13,13 +13,6 @@ class ServiceView(generic.ListView):
     template_name = "reservation_system/service.html"
     context_object_name = "service_list"
     def get_queryset(self):
-        # name = self.request.GET.get('name', '')
-        # print(name)
-        # print("HALO")
-        # object_list = Service.objects.all()
-        # if name:
-        #     object_list = object_list.filter(name__icontains=name)
-        # return object_list
         company_id = self.kwargs['pk']
         company = get_object_or_404(Company, pk=company_id)
         return Service.objects.filter(company=company)

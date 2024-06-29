@@ -14,10 +14,10 @@
     <script type="module" src="{% static 'formset/js/django-formset.js' %}"></script>
   </head>
   <body>
-    <h1>My Form with DateCalendar Widget</h1>
+    <h1>Wybierz datę rezerwacji</h1>
     <django-formset endpoint="{{ request.path }}" force-submission csrf-token="{{ csrf_token }}">
         {% render_form form 'bootstrap' %}
-        <button type="button" df-click="submit -> proceed">Submit</button>
+        <button type="button" df-click="submit -> proceed">Potwierdź</button>
     </django-formset>
   </body>
 </html>
